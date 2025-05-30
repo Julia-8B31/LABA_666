@@ -1,5 +1,20 @@
 #include "dialog_form.h"
 
+bool is_number(const QString &input)
+{
+    bool result = true;
+    for (QChar qc : input)
+    {
+        char c = qc.toLatin1();
+        if (!isdigit(static_cast<unsigned char>(c))) {
+            result = false;
+            break;
+        }
+    }
+
+    return result;
+}
+
 Dialog_form::Dialog_form(QWidget *parent) : QDialog(parent)
 {
     setWindowTitle("Additional form");
@@ -185,7 +200,7 @@ void Dialog_form::addbtn_clicked()
     QString selectedClass = combo_classes->currentText();
     QString name = inputname->text();
     QString author = inputauthor->text();
-    int duration = inputduration->text()=="" ? 0 :(inputduration->text()).toInt();
+    int duration = (is_number(inputduration->text()))? (inputduration->text()).toInt():0 ;
 
     if (selectedClass == "Song" && name!="")
     {

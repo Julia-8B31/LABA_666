@@ -12,7 +12,8 @@ SOURCES += \
     dialog_form.cpp \
     info_form.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    testik.cpp
 
 HEADERS += \
     AbstractAudio.hpp \

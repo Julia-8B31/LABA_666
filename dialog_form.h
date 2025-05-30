@@ -54,3 +54,5 @@ private:
 };
 
 #endif // DIALOG_FORM_H
+
+bool is_number(const QString &input);
